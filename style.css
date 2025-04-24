@@ -1,0 +1,146 @@
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Zain:wght@200;300;400;700;800;900&display=swap');
+
+*{
+    margin: 0;
+    padding:0;
+}
+
+body{
+    background-color: black;
+}
+.spotify{
+    display: flex;
+}
+.bar{
+    position: fixed;
+    background-color: rgb(30, 30, 30);
+    width: 61px;
+    height: 98vh;
+    margin-top: 1vh;
+    border-radius: 0.5rem;
+    overflow: hidden;
+    transition-property: all;
+    transition-duration: 0.5s;
+    transition-timing-function: ease-out;
+}
+
+.imp{
+    display: flex;
+    flex-wrap: nowrap;
+    opacity: 0.7;
+}
+.simp{
+    display: flex;
+    flex-wrap: nowrap;
+    opacity: 0.7;
+    padding-top: 10px;
+}
+
+
+.imp:hover{
+    opacity: 1;
+    cursor: pointer;
+}
+
+.simp:hover{
+    opacity: 1;
+    cursor: pointer;
+}
+
+.invert{
+    height: 50px;
+    padding-left: 5px;
+    cursor: pointer;
+}
+
+
+.full{
+    position: static;
+    background-color: rgb(30, 30, 30);
+    margin-left: 71px;
+    margin-top: 1vh;
+    border-top-left-radius: 0.5rem;
+    border-top-right-radius: 0.5rem;
+    overflow: hidden;
+    transition-property: all;
+    transition-duration: 0.5s;
+    transition-timing-function: ease-out;
+    width: 1450px;
+}
+
+.title{
+    color: white;
+    margin-top: 1px;
+    margin-left: 20px;
+    font-size: 40px;
+    font-family: "Bebas Neue", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+}
+
+.album{
+    display:flex;
+    flex-wrap: nowrap;
+    flex-direction: row;
+    margin-top: 10px;
+    opacity: 0.8;
+}
+.album:hover{
+    opacity: 1;
+    cursor: pointer;
+}
+
+.stitle{
+    color: white;
+    display: flex;
+    flex: 0 0 auto;
+    margin-top: 6px;
+    margin-left: 20px;
+    font-size: 25px;
+    font-family: "Bebas Neue", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+}
+
+.album img{
+    padding: 8px;
+    height: 40px;
+}
+
+/*slider card */
+
+.wrapper {
+    display: flex;
+	max-width: 200px; 
+	width: 100%; 
+	position: relative; 
+    padding: 10px;
+    margin-left: 30px;
+} 
+
+.wrapper i { 
+	height: 30px; 
+	width: 30px; 
+	background: orange; 
+	text-align: center; 
+	line-height: 28px; 
+	border-radius: 50%; 
+	cursor: pointer; 
+	position: absolute; 
+	top: 50%; 
+	font-size: 1.25rem; 
+	transform: translateY(-50%); 
+	box-shadow: 0 3px 6px rgba(0, 0, 0, 0.23); 
+
+} 
+
+.wrapper i:first-child { 
+	left: -12px; 
+
+} 
+
+.wrapper i:last-child { 
+	right: -12px; 
+
+} 

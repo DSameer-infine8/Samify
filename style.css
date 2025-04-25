@@ -11,6 +11,7 @@ body{
 }
 .spotify{
     display: flex;
+    position: relative;
 }
 .bar{
     position: fixed;
@@ -663,4 +664,39 @@ opacity: 1;
     margin-left: auto;
     margin-right: auto;
     border-radius: 0.5rem;
+}
+
+
+.playbar{
+    position: fixed;
+    z-index: 4;
+    height: 80px;
+    width: 100%;
+    background-color:hsla(0, 0%, 0%, 0.9);
+    bottom: 0px;
+    display: flex;
+
+}
+
+.play-img{
+    height: 65px;
+    padding: 8px;
+}
+
+.play-info{
+    font-size: large;
+    color: #ffffff;
+    padding-top: 10px;
+}
+
+.song-btns{
+    display: flex;
+    filter: invert(100%); 
+    height: 50px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.song-btns> img{
+    padding: 10px 20px 0px 20px;
 }

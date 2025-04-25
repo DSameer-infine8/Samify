@@ -1,198 +1,268 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>SAMIFY</title>
-    <link href="style.css" rel="stylesheet">
-    <link rel="stylesheet" href= 
-"https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" />
-</head>
-<body>
-
-<div class="spotify">
-        <div class="bar">
-            <div class="imp">
-                <img class="invert" src="./icons/headphone.svg" alt="menu">
-                <h2 class="title">SAMIFY</h2>
-            </div>
-            <div class="album">
-                <img src="./icons/music-folder.svg" alt="menu">
-                <h3 class="stitle">FAV ALBUMS</h3>
-            </div>
-            <div class="img-slider">
-                <div class="wrapper"> 
-                    <i id="left" class="fa-solid fas fa-angle-left"></i> 
-                    <ul class="carousel"> 
-                        <li class="card"> 
-                            <div class="img"><img src="./song_img/abcd2.jpg"
-                                                alt="" draggable="false"> </div>  
-                        </li> 
-                        <li class="card"> 
-                            <div class="img"><img src="./song_img/RaOne.jpg"
-                                                alt="" draggable="false"> </div>  
-                        </li> 
-                        <li class="card"> 
-                            <div class="img"><img src="./song_img/Ghajini.jpg"
-                                                alt="" draggable="false"> </div>  
-                        </li> 
-                        <li class="card"> 
-                            <div class="img"><img src= "./song_img/GOgoaGONE.jpg"
-                                                alt="" draggable="false"> </div>  
-                        </li> 
-                        <li class="card"> 
-                            <div class="img"><img src= "./song_img/Kirik_Party.jpg"
-                                                alt="" draggable="false"> </div> 
-                        </li> 
-                        <li class="card"> 
-                            <div class="img"><img src= "./song_img/Malang.jpg"
-                                                alt="" draggable="false"> </div>  
-                        </li>
-                        <li class="card"> 
-                            <div class="img"><img src= "./song_img/vikram.jpg"
-                                                alt="" draggable="false"> </div>  
-                        </li> 
-                        <li class="card"> 
-                            <div class="img"><img src= "./song_img/paramathma.jpg"
-                                                alt="" draggable="false"> </div>  
-                        </li>
-                    </ul> 
-                    <i id="right" class="fa-solid fas fa-angle-right"></i> 
-                </div>
-
-            </div>
-
-            <div class="simp">
-                <img class="mlist" src="./icons/recent.svg" alt="menu">
-                <h3 class="norm">Last Session</h3><br>
-            </div>
-
-            <div class="simp">
-            <img class="mlist" src="./icons/love-playlist.svg" alt="menu">
-            <h3 class="norm">Liked</h3><br>
-            </div>
-            <div class="simp s">
-            <img class="mlist" src="./icons/music-library-2-svgrepo-com.svg" alt="menu">
-            <h3 class="norm">Library</h3>
-            </div>
-
-            <div class="srectangle">
-                <ul>
-                    <li>Playlist</li>
-                    <li>Artists</li>
-                    <li>Podcasts</li>
-                </ul>
-            </div>
-            <div class="lib-box">
-
-            </div>
-
-
+    <link href="style.css" rel="stylesheet" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
+    />
+  </head>
+  <body>
+    <div class="spotify">
+      <div class="bar">
+        <div class="imp">
+          <img class="invert" src="./icons/headphone.svg" alt="menu" />
+          <h2 class="title">SAMIFY</h2>
         </div>
-        <div class="full">
-            <div class="header">
-            <div class="search-container">
-                <img class="syb" src="./icons/song.svg" alt="menu">
-                <img class="srh" src="./icons/search.svg" alt="menu">
-                <input type="text" id="search-input" class="search-input" placeholder="Search...">
-                <button id="search-button" class="search-button">Search</button>
-            </div>
-            <div class="sign">
-                <h3>Log-in</h3>
-                <h3>Sign-in</h3>
-            </div>
-            </div>
-
-            <div class="face">
-                <div class="banner">
-                    <div class="slider" style="--quantity: 10">
-                        <div class="item" style="--position: 1"><img src="images/lofi.png" alt=""></div>
-                        <div class="item" style="--position: 2"><img src="images/podcast.png" alt=""></div>
-                        <div class="item" style="--position: 3"><img src="images/remix.png" alt=""></div>
-                        <div class="item" style="--position: 4"><img src="images/peace.png" alt=""></div>
-                        <div class="item" style="--position: 5"><img src="images/romantic.png" alt=""></div>
-                        <div class="item" style="--position: 6"><img src="images/energy.png" alt=""></div>
-                        <div class="item" style="--position: 7"><img src="images/happy.png" alt=""></div>
-                        <div class="item" style="--position: 8"><img src="images/Motivation.png" alt=""></div>
-                        <div class="item" style="--position: 9"><img src="images/party.png" alt=""></div>
-                        <div class="item" style="--position: 10"><img src="images/peace.png" alt=""></div>
-                    </div>
-                    <div class="content">
-                        <div class="model"></div>
-                    </div>
+        <div class="album">
+          <img src="./icons/music-folder.svg" alt="menu" />
+          <h3 class="stitle">FAV ALBUMS</h3>
+        </div>
+        <div class="img-slider">
+          <div class="wrapper">
+            <i id="left" class="fa-solid fas fa-angle-left"></i>
+            <ul class="carousel">
+              <li class="card">
+                <div class="img">
+                  <img src="./song_img/abcd2.jpg" alt="" draggable="false" />
                 </div>
+              </li>
+              <li class="card">
+                <div class="img">
+                  <img src="./song_img/RaOne.jpg" alt="" draggable="false" />
+                </div>
+              </li>
+              <li class="card">
+                <div class="img">
+                  <img src="./song_img/Ghajini.jpg" alt="" draggable="false" />
+                </div>
+              </li>
+              <li class="card">
+                <div class="img">
+                  <img
+                    src="./song_img/GOgoaGONE.jpg"
+                    alt=""
+                    draggable="false"
+                  />
+                </div>
+              </li>
+              <li class="card">
+                <div class="img">
+                  <img
+                    src="./song_img/Kirik_Party.jpg"
+                    alt=""
+                    draggable="false"
+                  />
+                </div>
+              </li>
+              <li class="card">
+                <div class="img">
+                  <img src="./song_img/Malang.jpg" alt="" draggable="false" />
+                </div>
+              </li>
+              <li class="card">
+                <div class="img">
+                  <img src="./song_img/vikram.jpg" alt="" draggable="false" />
+                </div>
+              </li>
+              <li class="card">
+                <div class="img">
+                  <img
+                    src="./song_img/paramathma.jpg"
+                    alt=""
+                    draggable="false"
+                  />
+                </div>
+              </li>
+            </ul>
+            <i id="right" class="fa-solid fas fa-angle-right"></i>
+          </div>
+        </div>
 
+        <div class="simp">
+          <img class="mlist" src="./icons/recent.svg" alt="menu" />
+          <h3 class="norm">Last Session</h3>
+          <br />
+        </div>
 
+        <div class="simp">
+          <img class="mlist" src="./icons/love-playlist.svg" alt="menu" />
+          <h3 class="norm">Liked</h3>
+          <br />
+        </div>
+        <div class="simp s">
+          <img
+            class="mlist"
+            src="./icons/music-library-2-svgrepo-com.svg"
+            alt="menu"
+          />
+          <h3 class="norm">Library</h3>
+        </div>
+
+        <div class="srectangle">
+          <ul>
+            <li>Playlist</li>
+            <li>Artists</li>
+            <li>Podcasts</li>
+          </ul>
+        </div>
+        <div class="lib-box"></div>
+      </div>
+      <div class="full">
+        <div class="header">
+          <div class="search-container">
+            <img class="syb" src="./icons/song.svg" alt="menu" />
+            <img class="srh" src="./icons/search.svg" alt="menu" />
+            <input
+              type="text"
+              id="search-input"
+              class="search-input"
+              placeholder="Search..."
+            />
+            <button id="search-button" class="search-button">Search</button>
+          </div>
+          <div class="sign">
+            <h3>Log-in</h3>
+            <h3>Sign-in</h3>
+          </div>
+        </div>
+
+        <div class="face">
+          <div class="banner">
+            <div class="slider" style="--quantity: 10">
+              <div class="item" style="--position: 1">
+                <img src="images/lofi.png" alt="" />
+              </div>
+              <div class="item" style="--position: 2">
+                <img src="images/podcast.png" alt="" />
+              </div>
+              <div class="item" style="--position: 3">
+                <img src="images/remix.png" alt="" />
+              </div>
+              <div class="item" style="--position: 4">
+                <img src="images/peace.png" alt="" />
+              </div>
+              <div class="item" style="--position: 5">
+                <img src="images/romantic.png" alt="" />
+              </div>
+              <div class="item" style="--position: 6">
+                <img src="images/energy.png" alt="" />
+              </div>
+              <div class="item" style="--position: 7">
+                <img src="images/happy.png" alt="" />
+              </div>
+              <div class="item" style="--position: 8">
+                <img src="images/Motivation.png" alt="" />
+              </div>
+              <div class="item" style="--position: 9">
+                <img src="images/party.png" alt="" />
+              </div>
+              <div class="item" style="--position: 10">
+                <img src="images/peace.png" alt="" />
+              </div>
             </div>
+            <div class="content">
+              <div class="model"></div>
+            </div>
+          </div>
+        </div>
 
-            <div class="boxit">
-            <div class="slid" reverse="true" style="
-            --width: 180px;
-            --height: 180px;
-            --quantity: 10;
-        ">
-
+        <div class="boxit">
+          <div
+            class="slid"
+            reverse="true"
+            style="--width: 180px; --height: 180px; --quantity: 10"
+          >
             <div class="list2">
-                <div class="items" style="--position: 11"><img src="images/1.jpg" alt=""></div>
-                <div class="items" style="--position: 12"><img src="images/1.jpg" alt=""></div>
-                <div class="items" style="--position: 13"><img src="images/1.jpg" alt=""></div>
-                <div class="items" style="--position: 14"><img src="images/1.jpg" alt=""></div>
-                <div class="items" style="--position: 15"><img src="images/1.jpg" alt=""></div>
-                <div class="items" style="--position: 16"><img src="images/1.jpg" alt=""></div>
-                <div class="items" style="--position: 17"><img src="images/1.jpg" alt=""></div>
-                <div class="items" style="--position: 18"><img src="images/1.jpg" alt=""></div>
-                <div class="items" style="--position: 19"><img src="images/1.jpg" alt=""></div>
-                <div class="items" style="--position: 20"><img src="images/1.jpg" alt=""></div>
+              <div class="items" style="--position: 11">
+                <img src="images/1.jpg" alt="" />
+              </div>
+              <div class="items" style="--position: 12">
+                <img src="images/1.jpg" alt="" />
+              </div>
+              <div class="items" style="--position: 13">
+                <img src="images/1.jpg" alt="" />
+              </div>
+              <div class="items" style="--position: 14">
+                <img src="images/1.jpg" alt="" />
+              </div>
+              <div class="items" style="--position: 15">
+                <img src="images/1.jpg" alt="" />
+              </div>
+              <div class="items" style="--position: 16">
+                <img src="images/1.jpg" alt="" />
+              </div>
+              <div class="items" style="--position: 17">
+                <img src="images/1.jpg" alt="" />
+              </div>
+              <div class="items" style="--position: 18">
+                <img src="images/1.jpg" alt="" />
+              </div>
+              <div class="items" style="--position: 19">
+                <img src="images/1.jpg" alt="" />
+              </div>
+              <div class="items" style="--position: 20">
+                <img src="images/1.jpg" alt="" />
+              </div>
             </div>
-
+          </div>
         </div>
-        </div>
-
 
         <h2 class="heading">Popular albums</h2>
 
         <div class="fullline">
-        <div class="cards">
-                <div class="cardimg"> <img src="./song_img/paramathma.jpg"></div>
-                <div><img class="playBtn" src="./icons/play-but.png"> </div>
-                <div class="info"><h3>Paramathma</h3></div>
+          <div class="cards">
+            <div class="cardimg"><img src="./song_img/paramathma.jpg" /></div>
+            <div><img class="playBtn" src="./icons/play-but.png" /></div>
+            <div class="info"><h3>Paramathma</h3></div>
+          </div>
+
+          <div class="cards">
+            <div class="cardimg"><img src="./song_img/paramathma.jpg" /></div>
+            <div><img class="playBtn" src="./icons/play-but.png" /></div>
+            <div class="info"><h3>Paramathma</h3></div>
+          </div>
+
+          <div class="cards">
+            <div class="cardimg"><img src="./song_img/paramathma.jpg" /></div>
+            <div><img class="playBtn" src="./icons/play-but.png" /></div>
+            <div class="info"><h3>Paramathma</h3></div>
+          </div>
+
+          <div class="cards">
+            <div class="cardimg"><img src="./song_img/paramathma.jpg" /></div>
+            <div><img class="playBtn" src="./icons/play-but.png" /></div>
+            <div class="info"><h3>Paramathma</h3></div>
+          </div>
+
+          <div class="cards">
+            <div class="cardimg"><img src="./song_img/paramathma.jpg" /></div>
+            <div><img class="playBtn" src="./icons/play-but.png" /></div>
+            <div class="info"><h3>Paramathma</h3></div>
+          </div>
         </div>
 
-        <div class="cards">
-            <div class="cardimg"> <img src="./song_img/paramathma.jpg"></div>
-            <div><img class="playBtn" src="./icons/play-but.png"> </div>
-            <div class="info"><h3>Paramathma</h3></div>
+        <!--card slider-->
+        <div class="blank"></div>
+      </div>
     </div>
 
-<div class="cards">
-    <div class="cardimg"> <img src="./song_img/paramathma.jpg"></div>
-    <div><img class="playBtn" src="./icons/play-but.png"> </div>
-    <div class="info"><h3>Paramathma</h3></div>
-</div>
+    <div class="playbar">
+        <img class="play-img" src="./song_img/Malang.jpg" >
+        <h4 class="play-info">Malang</h4>
 
-<div class="cards">
-    <div class="cardimg"> <img src="./song_img/paramathma.jpg"></div>
-    <div><img class="playBtn" src="./icons/play-but.png"> </div>
-    <div class="info"><h3>Paramathma</h3></div>
-</div>
+        <div class="song-btns">
+            <img class="play-prev" src="./icons/previous.png" >
+            <img class="play" src="./icons/play (1).png" >
+            <img class="play-next" src="./icons/next-button.png" >
+        </div>
 
-<div class="cards">
-    <div class="cardimg"> <img src="./song_img/paramathma.jpg"></div>
-    <div><img class="playBtn" src="./icons/play-but.png"> </div>
-    <div class="info"><h3>Paramathma</h3></div>
-</div>
-
-</div>
+    </div>
 
 
-    <!--card slider-->
-    <div class="blank"></div>
-
-
-
-</div>
-
-</div>
     <script src="logic.js" defer></script>
-</body>
+  </body>
 </html>

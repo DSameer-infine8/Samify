@@ -710,3 +710,28 @@ opacity: 1;
 .spl > img{
     padding: 10px 15px 0px 15px;
 }
+
+.play-lists> li{
+    display: flex;
+    border: 1px solid white;
+    padding: 8px;
+    border-radius: 2rem;
+    margin-bottom: 10px;
+    overflow: hidden;
+}
+
+.play-lists>li > img{
+    height: 40px;
+}
+
+.play-lists> li> p{
+    color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0px 0px 0px 10px;
+}
+
+.lib-box:hover {
+    overflow-x: scroll;
+}

@@ -119,3 +119,85 @@ document.getElementById('search-button').addEventListener('click', function() {
 
 let like = document.querySelector(".like");
 
+/*fetch songs name*/
+
+
+
+const getName = async () => {
+    let a = await fetch("http://127.0.0.1:5500/Songs/song/");
+    let response = await a.text();
+    console.log(response);
+
+    let div = document.createElement("div");
+    div.innerHTML = response;
+
+    let li = div.getElementsByTagName("li");
+    let songs = [];
+
+    for (let index = 0; index < li.length; index++) {
+        const element = li[index];
+        const name = element.querySelector(".name"); // get span.name
+        if (name && name.innerText.trim().endsWith(".mp3")) {
+            let cleanName = name.innerText.trim().slice(0, -4); // remove last 4 characters (.mp3)
+            songs.push(cleanName);
+        }
+    }
+
+    return(songs);
+}
+
+getName();
+
+
+/*fetch song URL*/
+
+const getSongs = async () => {
+    let a = await fetch("http://127.0.0.1:5500/Songs/song/");
+    let response = await a.text();
+    console.log(response);
+
+    let div = document.createElement("div");
+    div.innerHTML = response;
+
+    let as = div.getElementsByTagName("a");
+    let songs = [];
+	for (let index = 0; index < as.length; index++) {
+		const element = as[index];
+		if(element.href.endsWith(".mp3")){
+			songs.push(element.href)
+		}	
+	}
+	console.log(songs[0])
+
+
+	return songs;
+}
+
+const main = async () => {
+	let songs = await getSongs()
+	console.log(songs[0])
+
+	var audio = new Audio();
+    audio.play();
+	
+}
+
+main();
+
+
+
+const play1 = document.querySelector(".play");
+
+const libLi = async () =>{
+	let songs = await getName();
+	for (let index = 0; index < songs.length; index++) {
+		let playLists = document.querySelector(".play-lists");
+		let li = document.createElement("li");
+		li.innerHTML = `<img class=okp id=song${index+1} src="./icons/play-but.png "/> <p>${songs[index]}</p>`
+		playLists.appendChild(li);
+		
+	}
+}
+
+libLi();
+

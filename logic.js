@@ -154,7 +154,6 @@ getName();
 const getSongs = async () => {
     let a = await fetch("http://127.0.0.1:5500/Songs/song/");
     let response = await a.text();
-    console.log(response);
 
     let div = document.createElement("div");
     div.innerHTML = response;
@@ -167,26 +166,13 @@ const getSongs = async () => {
 			songs.push(element.href)
 		}	
 	}
-	console.log(songs[0])
 
 
 	return songs;
 }
 
-const main = async () => {
-	let songs = await getSongs()
-	console.log(songs[0])
-
-	var audio = new Audio();
-    audio.play();
-	
-}
-
-main();
 
 
-
-const play1 = document.querySelector(".play");
 
 const libLi = async () =>{
 	let songs = await getName();
@@ -201,3 +187,53 @@ const libLi = async () =>{
 
 libLi();
 
+
+/*play bar*/
+var playBtn1 = document.querySelector(".play");
+var playNxtBtn = document.querySelector(".playNxt");
+var playPrvBtn = document.querySelector(".play-prev");
+var audio = document.getElementById('audio');
+var playName = document.querySelector(".play-info");
+var count = 0;
+var index = 0;
+
+const playPause = () =>{
+	if(count ==0){
+		count = 1;
+		audio.play();
+		playBtn1.src = "./icons/pause.png"
+	}else{
+		count = 0;
+		audio.pause();
+		playBtn1.src = "./icons/play (1).png"
+	}
+}
+const playPrvSong = async () =>{
+	let songs = await getSongs();
+	let names = await getName();
+	index = index-1;
+	let songURL = songs[index]
+	let name = names[index]
+	console.log(songURL);
+	audio.src = songURL;
+	audio.load();
+	audio.play();
+	playName.innerText = name;
+}
+
+const playNxtSong = async () =>{
+	let songs = await getSongs();
+	let names = await getName();
+	let songURL = songs[index]
+	let name = names[index]
+	console.log(songURL);
+	audio.src = songURL;
+	audio.load();
+	audio.play();
+	playName.innerText = name;
+	index = index+1;
+}
+
+playBtn1.addEventListener("click", playPause);
+playNxtBtn.addEventListener("click", playNxtSong);
+playPrvBtn.addEventListener("click", playPrvSong);

@@ -2,6 +2,7 @@ const btns = document.querySelector(".invert");
 const bar = document.querySelector(".bar");
 const large = document.querySelector(".full");
 const face = document.querySelector(".face");
+var audio = document.getElementById('audio');
 
 var yess = true;
 
@@ -176,13 +177,28 @@ const getSongs = async () => {
 
 const libLi = async () =>{
 	let songs = await getName();
+	let songsURL = await getSongs();
 	for (let index = 0; index < songs.length; index++) {
 		let playLists = document.querySelector(".play-lists");
 		let li = document.createElement("li");
-		li.innerHTML = `<img class=okp id=song${index+1} src="./icons/play-but.png "/> <p>${songs[index]}</p>`
+		li.innerHTML = `<img class=okp id=${songsURL[index]} src="./icons/play-but.png "/> <p>${songs[index]}</p>`
 		playLists.appendChild(li);
 		
 	}
+
+var libSongs = document.querySelectorAll(".okp");
+libSongs.forEach(function(libSong) {
+	libSong.addEventListener("click", function() {
+		audio.pause();
+	  songNow = this.id; // "this" refers to the clicked button
+	  audio.src = songNow;
+	  audio.load();
+	  audio.play();
+	  playName.innerText = "NOW";
+
+	});
+  });
+
 }
 
 libLi();
@@ -192,7 +208,6 @@ libLi();
 var playBtn1 = document.querySelector(".play");
 var playNxtBtn = document.querySelector(".playNxt");
 var playPrvBtn = document.querySelector(".play-prev");
-var audio = document.getElementById('audio');
 var playName = document.querySelector(".play-info");
 var count = 0;
 var index = 0;
@@ -237,3 +252,27 @@ const playNxtSong = async () =>{
 playBtn1.addEventListener("click", playPause);
 playNxtBtn.addEventListener("click", playNxtSong);
 playPrvBtn.addEventListener("click", playPrvSong);
+
+
+//Library Playlist play
+
+/*
+
+let okps = document.querySelectorAll(".okp");
+
+okps.forEach(function(okp) {
+  okp.addEventListener("click", function() {
+    console.log("Clicked:", this.dataset.name); // "this" refers to the clicked button
+  });
+});
+
+
+
+let songsss = document.querySelector("#song1");
+
+const printit = () =>{
+	console.log("button clicked");
+}
+
+songsss.addEventListener("click", printit)
+*/

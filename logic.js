@@ -174,6 +174,7 @@ const getSongs = async () => {
 
 
 
+//Library Playlist play
 
 const libLi = async () =>{
 	let songs = await getName();
@@ -181,7 +182,9 @@ const libLi = async () =>{
 	for (let index = 0; index < songs.length; index++) {
 		let playLists = document.querySelector(".play-lists");
 		let li = document.createElement("li");
-		li.innerHTML = `<img class=okp id=${songsURL[index]} src="./icons/play-but.png "/> <p>${songs[index]}</p>`
+		li.classList.add('now')
+		li.id = index
+		li.innerHTML = `<img class=okp id=${songsURL[index]} src="./icons/play-but.png "/><p class="LiNames">${songs[index]}</p>`
 		playLists.appendChild(li);
 		
 	}
@@ -194,10 +197,20 @@ libSongs.forEach(function(libSong) {
 	  audio.src = songNow;
 	  audio.load();
 	  audio.play();
-	  playName.innerText = "NOW";
+	  playBtn1.src = "./icons/pause.png"
+	  count = 1;
 
 	});
-  });
+});
+
+var libNames = document.querySelectorAll(".now");
+libNames.forEach(function(libName) {
+	libName.addEventListener("click", function() {
+		playName.innerText = songs[libName.id];
+
+	});
+});
+
 
 }
 
@@ -253,26 +266,3 @@ playBtn1.addEventListener("click", playPause);
 playNxtBtn.addEventListener("click", playNxtSong);
 playPrvBtn.addEventListener("click", playPrvSong);
 
-
-//Library Playlist play
-
-/*
-
-let okps = document.querySelectorAll(".okp");
-
-okps.forEach(function(okp) {
-  okp.addEventListener("click", function() {
-    console.log("Clicked:", this.dataset.name); // "this" refers to the clicked button
-  });
-});
-
-
-
-let songsss = document.querySelector("#song1");
-
-const printit = () =>{
-	console.log("button clicked");
-}
-
-songsss.addEventListener("click", printit)
-*/

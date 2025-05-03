@@ -8,15 +8,15 @@ var yess = true;
 
 const menu = () =>{
     if (yess == true){
-        bar.style.width = "345px"; 
-		large.style.width = "1166px"; 
-		large.style.marginLeft = "355px"; 
+		bar.style.width = "61px";
+		large.style.width = "1450px"; 
+		large.style.marginLeft = "71px"; 
         yess = false;
     }
     else if(yess == false) {
-        bar.style.width = "61px";
-		large.style.width = "1450px"; 
-		large.style.marginLeft = "71px"; 
+		bar.style.width = "345px"; 
+		large.style.width = "1166px"; 
+		large.style.marginLeft = "355px"; 
         yess = true;
     }
 }
@@ -106,14 +106,14 @@ document.addEventListener("DOMContentLoaded", function() {
 }); 
 
 
-/* search bar*/
+/* search bar
 
 document.getElementById('search-button').addEventListener('click', function() {
     const query = document.getElementById('search-input').value;
     alert('Searching for: ' + query);
 });
 
-
+*/
 let like = document.querySelector(".like");
 
 /*fetch songs name*/
@@ -266,4 +266,12 @@ playPrvBtn.addEventListener("click", playPrvSong);
 
 function goToPage() {
     window.location.href = "album.html"; // replace with your actual page
+	libLi();
   }
+
+
+function goToHome() {
+ window.location.href = "index.html"; // replace with your actual page
+}
+
+libLi();

@@ -9,18 +9,14 @@ var yess = true;
 const menu = () =>{
     if (yess == true){
         bar.style.width = "345px"; 
-		bar.style.position = "fixed";
 		large.style.width = "1166px"; 
 		large.style.marginLeft = "355px"; 
-		face.style.overflow = "hidden";
         yess = false;
     }
     else if(yess == false) {
         bar.style.width = "61px";
-		bar.style.position = "fixed";
 		large.style.width = "1450px"; 
 		large.style.marginLeft = "71px"; 
-		face.style.overflow = "hidden";
         yess = true;
     }
 }
@@ -266,3 +262,8 @@ playBtn1.addEventListener("click", playPause);
 playNxtBtn.addEventListener("click", playNxtSong);
 playPrvBtn.addEventListener("click", playPrvSong);
 
+
+
+function goToPage() {
+    window.location.href = "album.html"; // replace with your actual page
+  }

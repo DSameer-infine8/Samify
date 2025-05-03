@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>SAMIFY</title>
+    <link rel="icon" href="/favicon.ico" type="image/x-icon" />
+    <link href="style.css" rel="stylesheet" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
+    />
+  </head>
+  <body>
+    <div class="spotify">
+      <div class="bar">
+        <div class="imp">
+          <img class="invert" src="./icons/headphone.svg" alt="menu" />
+          <h2 class="title">SAMIFY</h2>
+        </div>
+        <div class="album">
+          <img src="./icons/music-folder.svg" alt="menu" />
+          <h3 class="stitle">FAV ALBUMS</h3>
+        </div>
+        <div class="img-slider">
+          <div class="wrapper">
+            <i id="left" class="fa-solid fas fa-angle-left"></i>
+            <ul class="carousel">
+              <li class="card">
+                <div class="img">
+                  <img src="./song_img/abcd2.jpg" alt="" draggable="false" />
+                </div>
+              </li>
+              <li class="card">
+                <div class="img">
+                  <img src="./song_img/RaOne.jpg" alt="" draggable="false" />
+                </div>
+              </li>
+              <li class="card">
+                <div class="img">
+                  <img src="./song_img/Ghajini.jpg" alt="" draggable="false" />
+                </div>
+              </li>
+              <li class="card">
+                <div class="img">
+                  <img
+                    src="./song_img/GOgoaGONE.jpg"
+                    alt=""
+                    draggable="false"
+                  />
+                </div>
+              </li>
+              <li class="card">
+                <div class="img">
+                  <img
+                    src="./song_img/Kirik_Party.jpg"
+                    alt=""
+                    draggable="false"
+                  />
+                </div>
+              </li>
+              <li class="card">
+                <div class="img">
+                  <img src="./song_img/Malang.jpg" alt="" draggable="false" />
+                </div>
+              </li>
+              <li class="card">
+                <div class="img">
+                  <img src="./song_img/vikram.jpg" alt="" draggable="false" />
+                </div>
+              </li>
+              <li class="card">
+                <div class="img">
+                  <img
+                    src="./song_img/paramathma.jpg"
+                    alt=""
+                    draggable="false"
+                  />
+                </div>
+              </li>
+            </ul>
+            <i id="right" class="fa-solid fas fa-angle-right"></i>
+          </div>
+        </div>
+
+        <div class="simp">
+          <img class="mlist" src="./icons/recent.svg" alt="menu" />
+          <h3 class="norm">Last Session</h3>
+          <br />
+        </div>
+
+        <div class="simp">
+          <img class="mlist" src="./icons/love-playlist.svg" alt="menu" />
+          <h3 class="norm">Liked</h3>
+          <br />
+        </div>
+        <div class="simp s">
+          <img
+            class="mlist"
+            src="./icons/music-library-2-svgrepo-com.svg"
+            alt="menu"
+          />
+          <h3 class="norm">Library</h3>
+        </div>
+
+        <div class="srectangle">
+          <ul>
+            <li>Playlist</li>
+            <li>Artists</li>
+            <li>Podcasts</li>
+          </ul>
+        </div>
+        <div class="lib-box">
+          <ul class="play-lists">
+
+          </ul>
+
+
+        </div>
+      </div>
+      <div class="full">
+        hello
+      </div>
+    </div>
+
+    <div class="playbar">
+        <img class="play-img" src="./song_img/Malang.jpg" >
+        <h4 class="play-info">Alcoholia</h4>
+
+        <div class="song-btns">
+          <audio id="audio">
+            <source src="./Songs/song/Alcoholia.mp3" type="audio/mpeg">
+          </audio>
+            <img class="play-prev" src="./icons/previous.png" >
+            <img class="play" src="./icons/play (1).png" >
+            <img class="playNxt" src="./icons/next-button.png" >
+        </div>
+
+        <div class="spl">
+            <img class="like" src="./icons/heart.png">
+            <img class="speaker" src="./icons/speaker-filled-audio-tool.png">
+            <img class="queue" src="./icons/list.png">
+        </div>
+
+    </div>
+
+
+    <script src="logic.js"></script>
+  </body>
+</html>

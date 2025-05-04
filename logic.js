@@ -331,14 +331,14 @@ const albumLi = async () =>{
 	for (let index = 0; index < songs.length; index++) {
 		let playLists = document.querySelector(".track");
 		let li = document.createElement("li");
-		li.classList.add('now')
+		li.classList.add('songtrack')
 		li.id = index
-		li.innerHTML = `<img class=okp id=${songsURL[index]} src="./icons/play-but.png "/><p class="LiNames">${songs[index]}</p>`
+		li.innerHTML = `<img class="trackLi" id=${songsURL[index]} src="./icons/play-but.png "/><p class="trackLiNames">${songs[index]}</p>`
 		playLists.appendChild(li);
 		
 	}
 
-var libSongs = document.querySelectorAll(".okp");
+var libSongs = document.querySelectorAll(".trackLi");
 libSongs.forEach(function(libSong) {
 	libSong.addEventListener("click", function() {
 		audio.pause();
@@ -352,7 +352,7 @@ libSongs.forEach(function(libSong) {
 	});
 });
 
-var libNames = document.querySelectorAll(".now");
+var libNames = document.querySelectorAll(".songtrack");
 libNames.forEach(function(libName) {
 	libName.addEventListener("click", function() {
 		playName.innerText = songs[libName.id];

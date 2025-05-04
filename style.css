@@ -929,3 +929,8 @@ ol{
     padding-left: 10px;
     font-size: 20px;
 }
+
+.space{
+    height: 100px;
+    width: 100%;
+}

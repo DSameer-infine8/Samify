@@ -748,7 +748,6 @@ opacity: 1;
 
 .full-album{
     position: static;
-    display: flex;
     background-color: rgb(30, 30, 30);
     margin-left: 355px;
     margin-top: 1vh;
@@ -760,7 +759,9 @@ opacity: 1;
     transition-timing-function: ease-out;
     width: 1166px;
 }
-
+.album-info{
+    display: flex;
+}
 .album-img{
     display: flex;
     flex-direction: column;
@@ -806,6 +807,7 @@ opacity: 1;
 }
 .album-details{
     margin-left: 40px;
+    width: 100%;
 }
 .album-details h1 {
     font-size: 3rem;
@@ -896,4 +898,34 @@ opacity: 1;
     left:180px;
     height:70px;
 
+}
+
+.album-track{
+    display: block;
+}
+
+ol{
+    list-style:circle;
+}
+
+.track > li{
+        display: flex;
+        border: 1px solid white;
+        padding: 8px;
+        border-radius: 2rem;
+        margin-bottom: 10px;
+        overflow: hidden;
+}
+
+.trackLi{
+    height: 50px;
+}
+
+.trackLiNames{
+    color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-left: 10px;
+    font-size: 20px;
 }

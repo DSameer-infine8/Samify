@@ -123,7 +123,6 @@ let like = document.querySelector(".like");
 const getName = async () => {
     let a = await fetch("http://127.0.0.1:5500/Songs/song/");
     let response = await a.text();
-    console.log(response);
 
     let div = document.createElement("div");
     div.innerHTML = response;
@@ -238,7 +237,6 @@ const playPrvSong = async () =>{
 	index = index-1;
 	let songURL = songs[index]
 	let name = names[index]
-	console.log(songURL);
 	audio.src = songURL;
 	audio.load();
 	audio.play();
@@ -250,7 +248,6 @@ const playNxtSong = async () =>{
 	let names = await getName();
 	let songURL = songs[index]
 	let name = names[index]
-	console.log(songURL);
 	audio.src = songURL;
 	audio.load();
 	audio.play();
@@ -275,3 +272,95 @@ function goToHome() {
 }
 
 libLi();
+
+
+//for album 
+
+const NameforAlbum = async () => {
+    let a = await fetch("http://127.0.0.1:5500/Songs/Paramathma/");
+    let response = await a.text();
+
+    let div = document.createElement("div");
+    div.innerHTML = response;
+
+    let li = div.getElementsByTagName("li");
+    let songs = [];
+
+    for (let index = 0; index < li.length; index++) {
+        const element = li[index];
+        const name = element.querySelector(".name"); // get span.name
+        if (name && name.innerText.trim().endsWith(".mp3")) {
+            let cleanName = name.innerText.trim().slice(0, -4); // remove last 4 characters (.mp3)
+            songs.push(cleanName);
+        }
+    }
+    return(songs);
+}
+
+NameforAlbum();
+
+
+const getAlbumSongs = async () => {
+    let a = await fetch("http://127.0.0.1:5500/Songs/Paramathma/");
+    let response = await a.text();
+
+    let div = document.createElement("div");
+    div.innerHTML = response;
+
+    let as = div.getElementsByTagName("a");
+    let songs = [];
+	for (let index = 0; index < as.length; index++) {
+		const element = as[index];
+		if(element.href.endsWith(".mp3")){
+			songs.push(element.href)
+		}	
+	}
+
+
+	return songs;
+}
+
+getAlbumSongs();
+
+//Album Playlist play
+
+
+const albumLi = async () =>{
+	let songs = await NameforAlbum();
+	let songsURL = await getAlbumSongs();
+	for (let index = 0; index < songs.length; index++) {
+		let playLists = document.querySelector(".track");
+		let li = document.createElement("li");
+		li.classList.add('now')
+		li.id = index
+		li.innerHTML = `<img class=okp id=${songsURL[index]} src="./icons/play-but.png "/><p class="LiNames">${songs[index]}</p>`
+		playLists.appendChild(li);
+		
+	}
+
+var libSongs = document.querySelectorAll(".okp");
+libSongs.forEach(function(libSong) {
+	libSong.addEventListener("click", function() {
+		audio.pause();
+	  songNow = this.id; // "this" refers to the clicked button
+	  audio.src = songNow;
+	  audio.load();
+	  audio.play();
+	  playBtn1.src = "./icons/pause.png"
+	  count = 1;
+
+	});
+});
+
+var libNames = document.querySelectorAll(".now");
+libNames.forEach(function(libName) {
+	libName.addEventListener("click", function() {
+		playName.innerText = songs[libName.id];
+
+	});
+});
+
+
+}
+
+albumLi();

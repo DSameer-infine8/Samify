@@ -3,7 +3,8 @@ const bar = document.querySelector(".bar");
 const large = document.querySelector(".full");
 const face = document.querySelector(".face");
 var audio = document.getElementById('audio');
-
+let link = "http://127.0.0.1:5500/Songs/song/";
+let playLink = "http://127.0.0.1:5500/Songs/Paramathma/";
 var yess = true;
 
 const menu = () =>{
@@ -22,6 +23,35 @@ const menu = () =>{
 }
 
 btns.addEventListener("click",menu);
+
+
+//to check which page we are
+/*
+document.addEventListener("DOMContentLoaded", function () {
+	const path = window.location.pathname;
+  
+	if (path === "/" || path === "/index.html") {
+	  console.log("In Home Page");
+	  playLink = "http://127.0.0.1:5500/Songs/song/";
+	  libLi();
+	} else if (path.includes("album")) {
+	  console.log("In Album Page");
+	  playLink = "http://127.0.0.1:5500/Songs/Paramathma/";
+	  albumLi();
+	  libLi();
+	} else {
+	  console.log("In Unknown Page:", path);
+	}
+
+
+	getSongs();
+	getName();
+
+	NameforAlbum();
+	getAlbumSongs();
+  });
+*/
+
 /*slider card*/
 
 document.addEventListener("DOMContentLoaded", function() { 
@@ -121,7 +151,7 @@ let like = document.querySelector(".like");
 
 
 const getName = async () => {
-    let a = await fetch("http://127.0.0.1:5500/Songs/song/");
+    let a = await fetch(link);
     let response = await a.text();
 
     let div = document.createElement("div");
@@ -144,11 +174,10 @@ const getName = async () => {
 
 getName();
 
-
 /*fetch song URL*/
 
 const getSongs = async () => {
-    let a = await fetch("http://127.0.0.1:5500/Songs/song/");
+    let a = await fetch(link);
     let response = await a.text();
 
     let div = document.createElement("div");
@@ -179,7 +208,7 @@ const libLi = async () =>{
 		let li = document.createElement("li");
 		li.classList.add('now')
 		li.id = index
-		li.innerHTML = `<img class=okp id=${songsURL[index]} src="./icons/play-but.png "/><p class="LiNames">${songs[index]}</p>`
+		li.innerHTML = `<img class="okp" id=${songsURL[index]} src="./icons/play-but.png "/><p class="LiNames">${songs[index]}</p>`
 		playLists.appendChild(li);
 		
 	}
@@ -231,9 +260,10 @@ const playPause = () =>{
 		playBtn1.src = "./icons/play (1).png"
 	}
 }
+
 const playPrvSong = async () =>{
-	let songs = await getSongs();
-	let names = await getName();
+	let songs = await getAlbumSongs();
+	let names = await NameforAlbum();
 	index = index-1;
 	let songURL = songs[index]
 	let name = names[index]
@@ -244,8 +274,8 @@ const playPrvSong = async () =>{
 }
 
 const playNxtSong = async () =>{
-	let songs = await getSongs();
-	let names = await getName();
+	let songs = await getAlbumSongs();
+	let names = await NameforAlbum();
 	let songURL = songs[index]
 	let name = names[index]
 	audio.src = songURL;
@@ -260,24 +290,13 @@ playNxtBtn.addEventListener("click", playNxtSong);
 playPrvBtn.addEventListener("click", playPrvSong);
 
 
-
-function goToPage() {
-    window.location.href = "album.html"; // replace with your actual page
-	libLi();
-  }
-
-
-function goToHome() {
- window.location.href = "index.html"; // replace with your actual page
-}
-
 libLi();
 
 
 //for album 
 
 const NameforAlbum = async () => {
-    let a = await fetch("http://127.0.0.1:5500/Songs/Paramathma/");
+    let a = await fetch(playLink);
     let response = await a.text();
 
     let div = document.createElement("div");
@@ -297,11 +316,10 @@ const NameforAlbum = async () => {
     return(songs);
 }
 
-NameforAlbum();
 
 
 const getAlbumSongs = async () => {
-    let a = await fetch("http://127.0.0.1:5500/Songs/Paramathma/");
+    let a = await fetch(playLink);
     let response = await a.text();
 
     let div = document.createElement("div");
@@ -320,10 +338,10 @@ const getAlbumSongs = async () => {
 	return songs;
 }
 
+NameforAlbum();
 getAlbumSongs();
 
 //Album Playlist play
-
 
 const albumLi = async () =>{
 	let songs = await NameforAlbum();
@@ -336,7 +354,7 @@ const albumLi = async () =>{
 		li.innerHTML = `<img class="trackLi" id=${songsURL[index]} src="./icons/play-but.png "/><p class="trackLiNames">${songs[index]}</p>`
 		playLists.appendChild(li);
 		
-	}
+}
 
 var libSongs = document.querySelectorAll(".trackLi");
 libSongs.forEach(function(libSong) {
@@ -364,3 +382,14 @@ libNames.forEach(function(libName) {
 }
 
 albumLi();
+
+function showAlbum() {
+	document.querySelector('.full').classList.remove('active');
+	document.querySelector('.full-album').classList.add('active');
+	window.scrollTo(0, 0);
+  }
+
+  function showHome() {
+	document.querySelector('.full-album').classList.remove('active');
+	document.querySelector('.full').classList.add('active');
+  }

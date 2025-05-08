@@ -25,6 +25,9 @@ body{
     transition-duration: 0.5s;
     transition-timing-function: ease-out;
 }
+.section { display: none; }
+.section.active { display: block; }
+
 
 .imp{
     display: flex;

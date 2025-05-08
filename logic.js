@@ -4,7 +4,6 @@ const large = document.querySelector(".full");
 const face = document.querySelector(".face");
 var audio = document.getElementById('audio');
 let link = "http://127.0.0.1:5500/Songs/song/";
-let playLink = "http://127.0.0.1:5500/Songs/Paramathma/";
 var yess = true;
 
 const menu = () =>{
@@ -24,33 +23,6 @@ const menu = () =>{
 
 btns.addEventListener("click",menu);
 
-
-//to check which page we are
-/*
-document.addEventListener("DOMContentLoaded", function () {
-	const path = window.location.pathname;
-  
-	if (path === "/" || path === "/index.html") {
-	  console.log("In Home Page");
-	  playLink = "http://127.0.0.1:5500/Songs/song/";
-	  libLi();
-	} else if (path.includes("album")) {
-	  console.log("In Album Page");
-	  playLink = "http://127.0.0.1:5500/Songs/Paramathma/";
-	  albumLi();
-	  libLi();
-	} else {
-	  console.log("In Unknown Page:", path);
-	}
-
-
-	getSongs();
-	getName();
-
-	NameforAlbum();
-	getAlbumSongs();
-  });
-*/
 
 /*slider card*/
 
@@ -294,8 +266,25 @@ libLi();
 
 
 //for album 
+let albumName = document.querySelector(".display-ablumName");
+let albumImg = document.querySelector(".albumimg");
+let mainLink = "http://127.0.0.1:5500/Songs/Albums/";
+let playLink = "";
+let cardNames = document.querySelectorAll(".cards");
+
+cardNames.forEach(function(cardName){
+	cardName.addEventListener("click", function(){
+		playLink = `http://127.0.0.1:5500/Songs/Albums/${this.id}/`
+		NameforAlbum();
+		getAlbumSongs();
+		albumLi();
+		albumName.innerText = this.id;
+		albumImg.src = `./song_img/${this.id}.jpg`;
+	})
+})
 
 const NameforAlbum = async () => {
+	console.log(playLink);
     let a = await fetch(playLink);
     let response = await a.text();
 
@@ -338,16 +327,16 @@ const getAlbumSongs = async () => {
 	return songs;
 }
 
-NameforAlbum();
-getAlbumSongs();
 
 //Album Playlist play
 
 const albumLi = async () =>{
 	let songs = await NameforAlbum();
 	let songsURL = await getAlbumSongs();
+	let playLists = document.querySelector(".track");
+	playLists.innerHTML = ''; 
+
 	for (let index = 0; index < songs.length; index++) {
-		let playLists = document.querySelector(".track");
 		let li = document.createElement("li");
 		li.classList.add('songtrack')
 		li.id = index

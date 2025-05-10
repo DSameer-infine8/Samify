@@ -681,6 +681,41 @@ opacity: 1;
 
 }
 
+.song-timing{
+    position: absolute;
+    width: 100%;
+    color: #fff;
+}
+.current-time{
+    position: absolute;
+    left: 16.5%;
+    bottom: -75px;
+}
+.duration{
+    position: absolute;
+    left: 96%;
+    bottom: -75px;
+}
+.seekbar{
+    position: absolute;
+    width: 75%;
+    height: 4px;
+    border: 2px solid rgb(255, 255, 255);
+    top: 64px;
+    margin-left: 20vw;
+    border-radius: 2rem;
+}
+
+.circle{
+    position: absolute;
+    height: 20px;
+    width: 20px;
+    background-color: #fff;
+    border-radius: 50%;
+    bottom: -7px;
+    left: -1%;
+    transition: left 0.5s;
+}
 .play-img{
     height: 65px;
     padding: 8px;
@@ -704,7 +739,7 @@ opacity: 1;
 .song-btns> img{
     padding: 10px 20px 0px 20px;
     cursor: pointer;
-    height: 50px;
+    height: 40px;
 }
 
 .spl{

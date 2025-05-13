@@ -6,6 +6,21 @@ var audio = document.getElementById('audio');
 let link = "http://127.0.0.1:5500/Songs/song/";
 var yess = true;
 
+
+
+function formatTime(seconds) {
+  const totalSeconds = Math.floor(seconds);
+
+  const mins = Math.floor(totalSeconds / 60);
+  const secs = totalSeconds % 60;
+
+  // Pad with leading zero if needed
+  const formattedMins = mins < 10 ? '0' + mins : mins;
+  const formattedSecs = secs < 10 ? '0' + secs : secs;
+
+  return `${formattedMins}:${formattedSecs}`;
+}
+
 const menu = () =>{
     if (yess == true){
 		bar.style.width = "61px";
@@ -22,6 +37,13 @@ const menu = () =>{
 }
 
 btns.addEventListener("click",menu);
+
+//Using a Shared Object to make common Funtion to Play any song
+
+const songUrl = {
+	value: ""
+};
+
 
 
 /*slider card*/
@@ -190,9 +212,7 @@ libSongs.forEach(function(libSong) {
 	libSong.addEventListener("click", function() {
 		audio.pause();
 	  songNow = this.id; // "this" refers to the clicked button
-	  audio.src = songNow;
-	  audio.load();
-	  audio.play();
+	  updatePlay(songNow);
 	  playBtn1.src = "./icons/pause.png"
 	  count = 1;
 
@@ -239,9 +259,7 @@ const playPrvSong = async () =>{
 	index = index-1;
 	let songURL = songs[index]
 	let name = names[index]
-	audio.src = songURL;
-	audio.load();
-	audio.play();
+	updatePlay(songURL);
 	playName.innerText = name;
 }
 
@@ -350,9 +368,7 @@ libSongs.forEach(function(libSong) {
 	libSong.addEventListener("click", function() {
 		audio.pause();
 	  songNow = this.id; // "this" refers to the clicked button
-	  audio.src = songNow;
-	  audio.load();
-	  audio.play();
+	  updatePlay(songNow);
 	  playBtn1.src = "./icons/pause.png"
 	  count = 1;
 
@@ -381,4 +397,28 @@ function showAlbum() {
   function showHome() {
 	document.querySelector('.full-album').classList.remove('active');
 	document.querySelector('.full').classList.add('active');
+  }
+
+
+  
+  
+  function updatePlay(songNow){
+	  songUrl.value = songNow;
+	  audio.src = songUrl.value;
+	  audio.load();
+	  audio.play();
+	  
+	  
+	  audio.addEventListener("timeupdate",()=>{
+		let curr = document.querySelector(".current-time");
+		let dur = document.querySelector(".duration");
+
+		curr.innerText = formatTime(audio.currentTime);
+		dur.innerText = formatTime(audio.duration);
+		let percent = (audio.currentTime/audio.duration)*100;
+		console.log(percent);
+		let songprogress = document.querySelector(".circle")
+		songprogress.style.left = `${percent - 1}%`;
+
+	})
   }

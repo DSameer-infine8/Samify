@@ -743,6 +743,7 @@ opacity: 1;
 }
 
 .spl{
+    position: relative;
     display: flex;
     filter: invert(100%); 
     height: 40px;
@@ -974,4 +975,30 @@ ol{
 .space{
     height: 100px;
     width: 100%;
+}
+
+
+/*play-list next*/
+
+
+#next-playlist{
+        position: absolute;
+    z-index: 10;
+    height: 460px;
+    width: 400px;
+    left: -200px;
+    top: -455px;
+    margin-bottom: 10px;
+    background-color: #ffffff;
+    border-radius: 1rem;
+    display: none;
+}
+
+.queue:hover + #next-playlist{
+    display: block;
+}
+
+
+#next-playlist:hover {
+    display: block;
 }

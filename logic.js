@@ -6,7 +6,8 @@ var audio = document.getElementById('audio');
 let link = "http://127.0.0.1:5500/Songs/song/";
 var yess = true;
 
-
+let nextPlay = [];
+let nextPlayUrl = [];
 
 function formatTime(seconds) {
   const totalSeconds = Math.floor(seconds);

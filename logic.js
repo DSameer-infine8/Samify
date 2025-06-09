@@ -4,7 +4,6 @@ const large = document.querySelector(".full");
 const face = document.querySelector(".face");
 var audio = document.getElementById('audio');
 let link = "http://127.0.0.1:5500/Songs/song/";
-var yess = true;
 
 let i = 0;
 let nextPlayURL = [];
@@ -22,23 +21,6 @@ function formatTime(seconds) {
 
   return `${formattedMins}:${formattedSecs}`;
 }
-
-const menu = () =>{
-    if (yess == true){
-		bar.style.width = "61px";
-		large.style.width = "1450px"; 
-		large.style.marginLeft = "71px"; 
-        yess = false;
-    }
-    else if(yess == false) {
-		bar.style.width = "345px"; 
-		large.style.width = "1166px"; 
-		large.style.marginLeft = "355px"; 
-        yess = true;
-    }
-}
-
-btns.addEventListener("click",menu);
 
 //Using a Shared Object to make common Funtion to Play any song
 
@@ -254,6 +236,38 @@ queueBtns.forEach(function(queueBtn) {
 	});
 });
 
+const libNames = document.querySelectorAll(".LiNames");
+var yess = true;
+
+const menu = () =>{
+    if (yess == true){
+		bar.style.width = "61px";
+		large.style.width = "1450px"; 
+		large.style.marginLeft = "71px"; 
+		libNames.forEach(function(libName){
+			libName.style.display = "none";
+		});
+		queueBtns.forEach(function(queueBtn){
+			queueBtn.style.display = "none";
+		})
+        yess = false;
+    }
+    else if(yess == false) {
+		bar.style.width = "345px"; 
+		large.style.width = "1166px"; 
+		large.style.marginLeft = "355px";
+		libNames.forEach(function(libName){
+			libName.style.display = "contents";
+		}) 
+		queueBtns.forEach(function(queueBtn){
+		queueBtn.style.display = "flex";
+		})
+        yess = true;
+    }
+}
+
+btns.addEventListener("click",menu);
+
 
 }
 
@@ -428,8 +442,38 @@ queueBtns.forEach(function(queueBtn) {
 	});
 });
 
+const largeAlbum = document.querySelector(".full-album");
+const libNames = document.querySelectorAll(".LiNames");
+var yess = true;
 
+const menu = () =>{
+    if (yess == true){
+		bar.style.width = "61px";
+		largeAlbum.style.width = "1450px"; 
+		largeAlbum.style.marginLeft = "71px"; 
+		libNames.forEach(function(libName){
+			libName.style.display = "none";
+		});
+		queueBtns.forEach(function(queueBtn){
+			queueBtn.style.display = "none";
+		})
+        yess = false;
+    }
+    else if(yess == false) {
+		bar.style.width = "345px"; 
+		largeAlbum.style.width = "1166px"; 
+		largeAlbum.style.marginLeft = "355px";
+		libNames.forEach(function(libName){
+		libName.style.display = "contents";
+		}) 
+		queueBtns.forEach(function(queueBtn){
+		queueBtn.style.display = "flex";
+		})
+        yess = true;
+    }
+}
 
+btns.addEventListener("click",menu);
 
 }
 
@@ -471,6 +515,4 @@ function showAlbum() {
   }
 
   
-console.log("ok");
-
 

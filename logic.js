@@ -6,9 +6,8 @@ var audio = document.getElementById('audio');
 let link = "http://127.0.0.1:5500/Songs/song/";
 var yess = true;
 
-let i = 0;
-let nextPlayURL = [];
 let nextPlay = [];
+let nextPlayUrl = [];
 
 function formatTime(seconds) {
   const totalSeconds = Math.floor(seconds);
@@ -204,7 +203,7 @@ const libLi = async () =>{
 		let li = document.createElement("li");
 		li.classList.add('now')
 		li.id = index
-		li.innerHTML = `<img class="okp" id=${songsURL[index]} src="./icons/play-but.png "/><p class="LiNames">${songs[index]}</p><img class="queue-imgs" id="${songsURL[index]}" src="./icons/queue.png">`
+		li.innerHTML = `<img class="okp" id=${songsURL[index]} src="./icons/play-but.png "/><p class="LiNames">${songs[index]}</p>`
 		playLists.appendChild(li);
 		
 	}
@@ -218,36 +217,6 @@ libSongs.forEach(function(libSong) {
 	  playBtn1.src = "./icons/pause.png"
 	  count = 1;
 
-	});
-});
-
-const queueBtns = document.querySelectorAll(".queue-imgs");
-
-queueBtns.forEach(function(queueBtn) {
-	queueBtn.addEventListener("click", function(e) {
-		let url = this.id;
-		nextPlayURL.push(url);
-
-	let parentLi = this.closest("li");
-
-    // Inside that <li>, find the <p class="LiNames">
-    let songTitle = parentLi.querySelector(".LiNames");
-
-    if (songTitle) {
-      let songName = songTitle.innerText.trim();
-      nextPlay.push(songName);
-	}
-
-
-		let playLists = document.querySelector(".playlists-queue");
-		let li = document.createElement("li");
-		li.classList.add('queue-now')
-		li.id = index
-		li.innerHTML = `<img class="okp" src="./icons/play-but.png "/><p class="LiNames">${nextPlay[i]}</p>`
-		playLists.appendChild(li);
-
-		i = i+1;
-		
 	});
 });
 
@@ -286,16 +255,20 @@ const playPause = () =>{
 }
 
 const playPrvSong = async () =>{
+	let songs = await getAlbumSongs();
+	let names = await NameforAlbum();
 	index = index-1;
-	let songURL = nextPlayURL[index]
-	let name = nextPlay[index]
+	let songURL = songs[index]
+	let name = names[index]
 	updatePlay(songURL);
 	playName.innerText = name;
 }
 
 const playNxtSong = async () =>{
-	let songURL = nextPlayURL[index]
-	let name = nextPlay[index]
+	let songs = await getAlbumSongs();
+	let names = await NameforAlbum();
+	let songURL = songs[index]
+	let name = names[index]
 	audio.src = songURL;
 	audio.load();
 	audio.play();
@@ -308,6 +281,7 @@ playNxtBtn.addEventListener("click", playNxtSong);
 playPrvBtn.addEventListener("click", playPrvSong);
 
 
+libLi();
 
 
 //for album 
@@ -329,6 +303,7 @@ cardNames.forEach(function(cardName){
 })
 
 const NameforAlbum = async () => {
+	console.log(playLink);
     let a = await fetch(playLink);
     let response = await a.text();
 
@@ -384,7 +359,7 @@ const albumLi = async () =>{
 		let li = document.createElement("li");
 		li.classList.add('songtrack')
 		li.id = index
-		li.innerHTML = `<img class="trackLi" id=${songsURL[index]} src="./icons/play-but.png "/><p class="trackLiNames">${songs[index]}</p><img class="queue-img" id='${songsURL[index]}' src="./icons/queue.png">`
+		li.innerHTML = `<img class="trackLi" id=${songsURL[index]} src="./icons/play-but.png "/><p class="trackLiNames">${songs[index]}</p>`
 		playLists.appendChild(li);
 		
 }
@@ -398,33 +373,6 @@ libSongs.forEach(function(libSong) {
 	  playBtn1.src = "./icons/pause.png"
 	  count = 1;
 
-	});
-});
-
-const queueBtns = document.querySelectorAll(".queue-img");
-queueBtns.forEach(function(queueBtn) {
-	queueBtn.addEventListener("click", function(e) {
-		let url = this.id;
-		nextPlayURL.push(url);
-
-	let parentLi = this.closest("li");
-
-    // Inside that <li>, find the <p class="LiNames">
-    let songTitle = parentLi.querySelector(".trackLiNames");
-
-    if (songTitle) {
-      let songName = songTitle.innerText.trim();
-      nextPlay.push(songName);
-	}
-
-	let playLists = document.querySelector(".playlists-queue");
-		let li = document.createElement("li");
-		li.classList.add('queue-now')
-		li.id = index
-		li.innerHTML = `<img class="okp" src="./icons/play-but.png "/><p class="LiNames">${nextPlay[i]}</p>`
-		playLists.appendChild(li);
-
-		i = i+1;
 	});
 });
 
@@ -475,8 +423,3 @@ function showAlbum() {
 
 	})
   }
-
-console.log("ok");
-
-
-
